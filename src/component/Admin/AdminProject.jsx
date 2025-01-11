@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react'
+import Image from 'next/image';
 
 const AdminProject = ({ data }) => {
     const [formData, setFormData] = useState({
@@ -110,7 +111,7 @@ const AdminProject = ({ data }) => {
                                     <div>
                                         <p className="text-3xl underline my-5">Project Page Image</p>
                                         <div className="flex justify-center">
-                                            <img src={item.project_img} alt="home image" className="w-1/2 h-auto rounded" />
+                                            <Image src={item.project_img} width={500} height={500} alt="home image" className="w-1/2 h-auto rounded" />
                                         </div>
                                     </div>
                                     <div>

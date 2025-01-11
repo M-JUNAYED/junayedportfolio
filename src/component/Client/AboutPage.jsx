@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const AboutPage = ({ data }) => {
     if (!data || data.length === 0) {
@@ -31,7 +32,7 @@ const AboutPage = ({ data }) => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <img
+                    <Image width={200} height={200}
                         src={about.about_img || "/default-about-image.png"}
                         alt="Profile Image"
                         className="rounded-full w-48 h-48 shadow-lg"

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useDarkMode } from "../contaxt/DarkModeContext";
 import React, { useState } from "react";
+import Image from "next/image";
 
 const MasterLayout = ({ children }) => {
   const pathname = usePathname();
@@ -28,7 +29,7 @@ const MasterLayout = ({ children }) => {
           <div className="flex items-center justify-between">
             {/* Brand or Logo */}
             <div>
-              <img
+              <Image width={48} height={48}
                 src="/junu.webp"
                 alt="Junu Logo"
                 className="h-12 rounded p-0 w-auto"

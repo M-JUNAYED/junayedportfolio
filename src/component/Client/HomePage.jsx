@@ -4,9 +4,12 @@ import { motion } from "framer-motion";
 import { useDarkMode } from "../contaxt/DarkModeContext";
 import Link from "next/link";
 import { FaFacebook, FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
+import Image from "next/image";
 
 const HomePage = ({ data }) => {
   const { darkMode } = useDarkMode(); // Access dark mode state
+
+  if (!data || data.length === 0) return <div>Loding data...</div>
 
   return (
     <div
@@ -29,10 +32,10 @@ const HomePage = ({ data }) => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          👋Hi, I'm &nbsp;
-          <span className="text-red-500">{data[0].first_title || "Md. Junayed"}</span>
+          👋Hi, I&apos;m &nbsp;
+          <span className="text-red-500">{data[0].first_title || 'Md. Junayed'}</span>
           <br />
-          <span className="text-blue-500">{data[0].second_title || "a Developer"}</span>
+          <span className="text-blue-500">{data[0].second_title || 'a Developer'}</span>
         </motion.h1>
         <motion.h3
           className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-snug"
@@ -82,8 +85,8 @@ const HomePage = ({ data }) => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <img
-          src={data[0].home_img || "/default-image.png"}
+        <Image height={500} width={500}
+          src={data[0].home_img || ""}
           alt="Profile"
           className="rounded-lg shadow-lg w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg"
         />

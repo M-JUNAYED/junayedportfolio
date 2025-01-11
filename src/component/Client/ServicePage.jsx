@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const ServicePage = ({ data }) => {
   if (!data || data.length === 0) {
@@ -36,7 +37,7 @@ const ServicePage = ({ data }) => {
           >
             {/* Icon */}
             <div className="flex justify-center mb-6">
-              <img
+              <Image width={80} height={80}
                 src={service.logo_img || "/default-icon.png"}
                 alt={service.title || "Service"}
                 className="w-20 h-20 object-contain"
