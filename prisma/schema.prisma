@@ -1,0 +1,105 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String   @unique
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+model home {
+  id           Int      @id @default(autoincrement())
+  first_title  String?
+  second_title String?
+  thirt_title  String?
+  last_title   String?
+  sub_title    String?
+  home_img     String?
+  facebook     String?
+  twitter      String?
+  linkedin     String?
+  github       String?
+  project      String?
+  service      String?
+  client       String?
+  createdAt    DateTime @default(now()) @db.Timestamp(0)
+  updatedAt    DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+model about {
+  id        Int      @id @default(autoincrement())
+  title     String?
+  short_des String?
+  about_img String?
+  skills    String?
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+model skill {
+  id            Int      @id @default(autoincrement())
+  skill_name    String?
+  skill_parsent String?
+  createdAt     DateTime @default(now()) @db.Timestamp(0)
+  updatedAt     DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+model project {
+  id           Int      @id @default(autoincrement())
+  social_link  String?
+  project_name String?
+  project_img  String?
+  short_des    String?
+  createdAt    DateTime @default(now()) @db.Timestamp(0)
+  updatedAt    DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+model service {
+  id        Int      @id @default(autoincrement())
+  logo_img  String?
+  title     String?
+  short_des String?
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+model education {
+  id             Int      @id @default(autoincrement())
+  session        String?
+  degree         String?
+  institute_name String?
+  createdAt      DateTime @default(now()) @db.Timestamp(0)
+  updatedAt      DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+model exprience {
+  id           Int      @id @default(autoincrement())
+  project_name String?
+  company_name String?
+  createdAt    DateTime @default(now()) @db.Timestamp(0)
+  updatedAt    DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+model contact {
+  id            Int      @id @default(autoincrement())
+  full_name     String?
+  mobile_number String?
+  email         String?
+  message       String?
+  createdAt     DateTime @default(now()) @db.Timestamp(0)
+  updatedAt     DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}

@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import { DarkModeProvider } from "@/component/contaxt/DarkModeContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -19,12 +20,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    <DarkModeProvider>
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    </DarkModeProvider>
   );
 }
