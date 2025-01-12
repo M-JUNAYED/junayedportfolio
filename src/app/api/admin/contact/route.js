@@ -15,7 +15,6 @@ export async function GET() {
 export async function DELETE(req) {
     try{
         const {id} = await req.json()
-        console.log(id);
         
         const result = await prisma.contact.delete({
             where:{

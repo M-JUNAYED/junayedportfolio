@@ -20,9 +20,7 @@ export async function POST(req) {
 
 export async function DELETE(req) {
     try{
-        const {id} = await req.json()
-        console.log(id);
-        
+        const {id} = await req.json()    
         const result = await prisma.exprience.delete({
             where:{
                 id: id
